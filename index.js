@@ -8,19 +8,17 @@ const connection = mysql.createConnection({
   database: 'delta_app',
   password: 'shivu0710'
 });
-
-console.log(connection());
-
-// try{
-//   connection.query("SHOW tables",(err,result)=>{
-//   if(err) throw err;
-//   console.log(result);
-// })
-// }catch(err){
-//     console.log(err);
-// }
-
-// connection.end();
+let q = "SHOW tables";
+try{
+  connection.query(q,(err,result)=>{
+  if(err) throw err;
+  console.log(result);
+  console.log(result[0]);
+})
+}catch(err){
+    console.log(err);
+}
+connection.end();
 
 
 // let  getRandomData = ()=> {
